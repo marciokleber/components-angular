@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { StandardHeaderComponent } from '../core/layout/standard-header/standard-header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
+  imports: [StandardHeaderComponent],
+  template: `<app-standard-header/>`,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
