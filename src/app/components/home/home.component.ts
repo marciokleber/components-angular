@@ -4,21 +4,28 @@ import {MatListModule} from '@angular/material/list';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
   selector: 'app-home',
-  imports: [MatListModule,DragDropModule, CommonModule,MatToolbarModule],
+  imports: [MatListModule,DragDropModule, CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  nomes: string[] = ['Maria', 'Luisa', 'Lameirao', 'luisaxsz'];
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.typesOfShoes, event.previousIndex, event.currentIndex);
-    console.log(this.typesOfShoes)
+    moveItemInArray(this.nomes, event.previousIndex, event.currentIndex);
+    console.table(this.nomes.map((nome) => ({ Nome: nome })));
+  }
+
+  add() {
+    this.nomes = [...this.nomes, "test"];
+    console.table(this.nomes.map((nome) => ({ Nome: nome })));
   }
 
 }

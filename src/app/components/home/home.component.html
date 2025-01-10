@@ -1,19 +1,17 @@
-<!-- <mat-selection-list #shoes>
-  @for (shoe of typesOfShoes; track shoe) {
-    <mat-list-option>{{shoe}}</mat-list-option>
-  }
-</mat-selection-list>
 
-<p>
-  Options selected: {{shoes.selectedOptions.selected.length}}
-</p> -->
+<mat-selection-list #shoes cdkDropList [cdkDropListData]="nomes" (cdkDropListDropped)="drop($event)">
+  <mat-toolbar>
+    <span class="title">List Drag - Drop</span>
 
+    <button mat-flat-button  class="example-icon favorite-icon" (click)="add()" ><mat-icon>add</mat-icon>Add</button>
 
-<mat-selection-list #shoes cdkDropList [cdkDropListData]="typesOfShoes" (cdkDropListDropped)="drop($event)">
-  <mat-toolbar><span>List Drag - Drop</span></mat-toolbar>
+  </mat-toolbar>
 
-  <mat-list-option *ngFor="let shoe of typesOfShoes" cdkDrag>
-    {{ shoe }}
+  <mat-list-option class="list-option" cdkDrag *ngFor="let nome of nomes">
+    <div class="drag-container">
+      <mat-icon cdkDragHandle>drag_indicator</mat-icon>
+      {{ nome }}
+    </div>
   </mat-list-option>
 </mat-selection-list>
 
